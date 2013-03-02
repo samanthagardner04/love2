@@ -7,15 +7,16 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-   <%= link_to "Users", users_url %>
-   <%= link_to "Categories", categories_url %>
+    <%= link_to "Home", items_url %>
+    <%= link_to "Users", users_url %>
+    <%= link_to "Categories", categories_url %>
   <% if session[:email].present? %>
-      <%= link_to "Logout", logout_url %>
-   <% @user = User.find_by_email(session[:email]) %>
-      <%= link_to "My Profile", user_url(@user) %>
+    <% @user = User.find_by_email(session[:email]) %>
+    <%= link_to "My Profile", user_url(@user) %>
+    <%= link_to "Logout", logout_url %>
   <% else %>
-      <%= link_to "Login", login_url %>
-      <%= link_to "Sign Up", new_user_url %>
+    <%= link_to "Login", login_url %>
+    <%= link_to "Sign Up", new_user_url %>
   <% end %>
 
 <div>
