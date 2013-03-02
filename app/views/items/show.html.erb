@@ -7,7 +7,7 @@
 
 <p>
   <b>User:</b>
-  <%= @item.user_id %>
+  <%= @item.user.name %>
 </p>
 
 <p>
@@ -17,12 +17,12 @@
 
 <p>
   <b>Price:</b>
-  <%= @item.price %>
+  $<%= @item.price %>
 </p>
 
 <p>
   <b>Category:</b>
-  <%= @item.category_id %>
+  <%= @item.category.name %>
 </p>
 
 

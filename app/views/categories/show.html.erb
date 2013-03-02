@@ -1,19 +1,24 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Pillow:</b>
-  <%= @category.pillow %>
+
+  <%= @category.name %>
 </p>
 
-<p>
-  <b>Bag:</b>
-  <%= @category.bag %>
-</p>
+Items:
 
-<p>
-  <b>Apron:</b>
-  <%= @category.apron %>
-</p>
+
+<% @category.items.each do |item| %>
+<ul>
+  <li>
+    <div><%= item.name %></div>
+    <div><%= item.story %></div>
+    <div><%= item.user.name %></div>
+    <div>$<%= item.price %></div>
+  </li>
+</ul>
+
+<% end %>
 
 
 <%= link_to 'Edit', edit_category_path(@category) %> |

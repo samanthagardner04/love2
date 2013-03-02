@@ -46,17 +46,16 @@
 
 Item.destroy_all
 
-categories = ["pillow", "bag", "apron"]
 
-20.times do
 
-  randomizer = [0,1].shuffle
+10.times do
   i = Item.new
   i.price = rand(1..300)
   i.user = User.first
-  i.story = "Random Story Random Story Random Story"
+  i.story = "Random Story"
   i.name= "Sample Item Name"
+  i.category= Category.first
   i.save
 end
 
-puts "Created 20 items"
+puts "Created 10 items"
