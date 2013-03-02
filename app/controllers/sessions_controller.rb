@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     if u.present?
       if u.authenticate(params[:password])
         session[:email] = u.email
-        redirect_to root_url, notice: "You've been logged in"
+       redirect_to root_url, notice: "You've been logged in"
       end
     else
       redirect_to root_url, notice: 'Nice try'
