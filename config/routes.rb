@@ -1,4 +1,13 @@
 Love2::Application.routes.draw do
+
+ root :to => 'items#index'
+
+  get "/login" => 'sessions#new', as: :login
+
+  post "sessions/create" => 'sessions#create', as: :create_session
+
+  get "/logout" => 'sessions#destroy', as: :logout
+
   resources :categories
 
 
