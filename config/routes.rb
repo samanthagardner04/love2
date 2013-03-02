@@ -12,6 +12,7 @@ Love2::Application.routes.draw do
 
 
   resources :items
+  get "/checkout" => 'items#checkout'
 
 
   resources :users
