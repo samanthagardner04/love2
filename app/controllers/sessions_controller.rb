@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     u = User.find_by_email(params[:email])
     if u.present?
       if u.authenticate(params[:password])
-        session[:name] = u.name
+        session[:email] = u.email
         redirect_to root_url, notice: "You've been logged in"
       end
     else
@@ -17,6 +17,6 @@ class SessionsController < ApplicationController
 
   def destroy
     reset_session
-    redirect_to root_url, notice: "You've been logged out"
+    redirect_to login_url, notice: "You've been logged out"
   end
 end
