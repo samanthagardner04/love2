@@ -5,20 +5,14 @@ You're looking spritely today, <%= User.find_by_email(session[:email]).name %>.
 
 <h1>Items</h1>
 
-
-
-<h1>Listing items</h1>
-
-
-
 <% @items.each do |item| %>
   <ul>
     <li>
-    <%=link_to item.name, item %>
-    <%=link_to item.user.name, user_url(item.user_id) %>
-    <%= item.story %>
-    $<%= item.price %>
-    <%=link_to item.category.name, category_url(item.category_id) %>
+    <div><%=link_to item.name, item %></div>
+    <div><%=link_to item.user.name, user_url(item.user_id) %></div>
+    <div><%= item.story %></div>
+    <div>$<%= item.price %></div>
+    <div><%=link_to item.category.name, category_url(item.category_id) %></div>
     <%= link_to 'Edit', edit_item_path(item) %>
     <%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %>
     </li>

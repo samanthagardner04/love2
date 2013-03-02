@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
        redirect_to root_url
       end
     else
-      redirect_to root_url, notice: 'Nice try'
+      redirect_to login_url, notice: 'Nice try'
     end
   end
 
