@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  pillow: MyString
+  bag: MyString
+  apron: MyString
+
+two:
+  pillow: MyString
+  bag: MyString
+  apron: MyString
