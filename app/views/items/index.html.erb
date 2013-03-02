@@ -1,33 +1,24 @@
 <% if session[:email].present? %>
 You're looking spritely today, <%= User.find_by_email(session[:email]).name %>.
 <% end %>
-<h1>Listing items</h1>
+<h1>Items</h1>
 
-<table>
-  <tr>
-    <th>Story</th>
-    <th>User</th>
-    <th>Name</th>
-    <th>Price</th>
-    <th>Category</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+
 
 <% @items.each do |item| %>
-  <tr>
-    <td><%= item.story %></td>
-    <td><%= item.user.name %></td>
-    <td><%= item.name %></td>
-    <td>$<%= item.price %></td>
-    <td><%= item.category.name %></td>
-    <td><%= link_to 'Show', item %></td>
-    <td><%= link_to 'Edit', edit_item_path(item) %></td>
-    <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+  <ul>
+    <li>
+    <%=link_to item.name, item %>
+    <%=link_to item.user.name, user_url(item.user_id) %>
+    <%= item.story %>
+    $<%= item.price %>
+    <%=link_to item.category.name, category_url(item.category_id) %>
+    <%= link_to 'Edit', edit_item_path(item) %>
+    <%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %>
+    </li>
+  </ul>
+
 <% end %>
-</table>
 
 <br />
 
