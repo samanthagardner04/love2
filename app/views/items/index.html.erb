@@ -18,10 +18,10 @@ You're looking spritely today, <%= User.find_by_email(session[:email]).name %>.
 <% @items.each do |item| %>
   <tr>
     <td><%= item.story %></td>
-    <td><%= item.user_id %></td>
+    <td><%= item.user.name %></td>
     <td><%= item.name %></td>
     <td><%= item.price %></td>
-    <td><%= item.category_id %></td>
+    <td><%= item.category.name %></td>
     <td><%= link_to 'Show', item %></td>
     <td><%= link_to 'Edit', edit_item_path(item) %></td>
     <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>

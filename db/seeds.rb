@@ -48,7 +48,7 @@ Item.destroy_all
 
 categories = ["pillow", "bag", "apron"]
 
-20.times do
+10.times do
 
   randomizer = [0,1].shuffle
   i = Item.new
@@ -59,4 +59,4 @@ categories = ["pillow", "bag", "apron"]
   i.save
 end
 
-puts "Created 20 items"
+puts "Created 10 items"
