@@ -1,6 +1,6 @@
 Love2::Application.routes.draw do
 
- root :to => 'items#index'
+ root :to => 'categories#index'
 
   get "/login" => 'sessions#new', as: :login
 

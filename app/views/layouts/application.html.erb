@@ -5,22 +5,56 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
 </head>
 <body>
-    <%= link_to "Home", items_url %>
-    <%= link_to "Users", users_url %>
-    <%= link_to "Categories", categories_url %>
-  <% if session[:email].present? %>
-    <% @user = User.find_by_email(session[:email]) %>
-    <%= link_to "My Profile", user_url(@user) %>
-    <%= link_to "Logout", logout_url %>
-  <% else %>
-    <%= link_to "Login", login_url %>
-    <%= link_to "Sign Up", new_user_url %>
-  <% end %>
+
+
+ <!-- NAVBAR
+    ================================================== -->
+    <div class="navbar-wrapper">
+      <!-- Wrap the .navbar in .container to center it within the absolutely positioned parent. -->
+      <div class="container">
+
+        <div class="navbar navbar-inverse">
+          <div class="navbar-inner">
+            <!-- Responsive Navbar Part 1: Button for triggering responsive navbar (not covered in tutorial). Include responsive CSS to utilize. -->
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <img class="brand" href="#" src="../assets/logov2.jpeg"></a><!-- Project name</a> -->
+            <!-- Responsive Navbar Part 2: Place all navbar contents you want collapsed withing .navbar-collapse.collapse. -->
+            <div class="nav-collapse collapse">
+              <ul class="nav">
+                <li class="active"> <%= link_to "Home", root_url %></li>
+                <li><a href="#about">Learn More</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <!-- Read about Bootstrap dropdowns at http://twitter.github.com/bootstrap/javascript.html#dropdowns -->
+
+                    <% if session[:email].present? %>
+                    <% @user = User.find_by_email(session[:email]) %>
+                    <li><%= link_to "My Profile", user_url(@user) %></li>
+                    <li><%= link_to "Logout", logout_url %></li>
+                     <% else %>
+                    <li><%= link_to "Login", login_url %></li>
+                    <li><%= link_to "Sign Up", new_user_url %></li>
+                    <% end %>
+                  </ul>
+                </li>
+              </ul>
+            </div><!--/.nav-collapse -->
+          </div><!-- /.navbar-inner -->
+        </div><!-- /.navbar -->
+
+      </div> <!-- /.container -->
+    </div><!-- /.navbar-wrapper -->
+
 
 <div>
 <%= notice %>
 </div>
 <%= yield %>
-
+    <script src="../assets/jquery.js"></script>
+    <script src="../assets/bootstrap.js"></script>
+    <script src="../assets/home.js"></script>
 </body>
 </html>
