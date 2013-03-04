@@ -58,6 +58,8 @@
 <% @categories.each do |category| %>
  <div class="span3">
     <h2><%=link_to category.name, category %></h2>
+    <%=image_tag category.image, size: "200x200" %><br>
+    <%=category.description%><br>
     <%= link_to 'Edit', edit_category_path(category) %>
     <%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %>
 </div>
