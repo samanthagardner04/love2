@@ -17,6 +17,9 @@
   <div class="field">
     <%= f.text_field :email, placeholder: "Email Address"  %>
   </div>
+
+    <%= f.hidden_field :admin, value: false %>
+
   <div class="field">
     <%= f.password_field :password, placeholder: "Password"  %>
   </div>

@@ -1,4 +1,6 @@
-
+<% if session[:email].present? %>
+You're looking spritely today, <%= User.find_by_email(session[:email]).name %>.
+<% end %>
 
 <!-- Carousel
     ================================================== -->
@@ -60,8 +62,10 @@
     <h2><%=link_to category.name, category %></h2>
     <%=image_tag category.image, size: "200x200" %><br>
     <%=category.description%><br>
+    <% if session[:email].present? && User.find_by_email(session[:email]).admin? %>
     <%= link_to 'Edit', edit_category_path(category) %>
     <%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <% end %>
 </div>
 <% end %>
 
@@ -70,4 +74,6 @@
 
 <br />
 
+<% if session[:email].present? && User.find_by_email(session[:email]).admin? %>
 <%= link_to 'New Category', new_category_path %>
+<% end %>
