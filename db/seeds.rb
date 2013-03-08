@@ -7,34 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
+
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 #
@@ -58,4 +31,4 @@ Item.destroy_all
   i.save
 end
 
-puts "Created 10 items"
+puts "deleted items"
