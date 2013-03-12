@@ -14,7 +14,7 @@
     <div>$<%= item.price %></div>
     <div><%=link_to item.category.name, category_url(item.category_id) %></div>
     <%= link_to 'Edit', edit_item_path(item) %>
-    <%= button_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %>
     </li>
   </ul>
   <% end %>
