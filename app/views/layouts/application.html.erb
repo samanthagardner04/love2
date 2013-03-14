@@ -6,7 +6,7 @@
   <title>Love2</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
 </head>
-<body>
+<body class="body">
 
 
  <!-- NAVBAR
@@ -23,7 +23,8 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <img class="brand" href="#" src="../assets/logov2.jpeg" width="40" height="20"></a><!-- Project name</a> -->
+            <%= link_to (image_tag "../assets/logov2.jpeg", :width =>40, height: 20, class: "brand"), root_url %>
+           <!-- Project name</a> -->
             <!-- Responsive Navbar Part 2: Place all navbar contents you want collapsed withing .navbar-collapse.collapse. -->
             <div class="nav-collapse collapse">
               <ul class="nav">

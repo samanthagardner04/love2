@@ -9,7 +9,7 @@
 <% @category.items.each do |item| %>
 <ul>
   <li>
-    <div><%= item.name %></div>
+    <div><%=link_to item.name, item %></div>
     <div><%= item.story %></div>
     <div><%= item.user.name %></div>
     <div>$<%= item.price %></div>
