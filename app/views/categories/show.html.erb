@@ -1,22 +1,100 @@
 <p id="notice"><%= notice %></p>
 
-<p>
+    <!-- Carousel
+    ================================================== -->
+    <div id="myCarousel" class="carousel slide">
+      <div class="carousel-inner">
+        <div class="item active">
+          <img src="../assets/slide-01.jpg" alt="" class="blur">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1><%= @category.name %></h1>
+              <p class="lead">1. Pick your style 2. Add trim 3. Checkout</p>
+              <a class="btn btn-large btn-primary" href="#">Get Started</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
- <h1> <%= @category.name %> </h1>
-</p>
+    <!-- Marketing messaging and featurettes
+    ================================================== -->
+    <!-- Wrap the rest of the page in another container to center all the content. -->
+
+    <div class="container marketing">
+
+      <!-- Three columns of text below the carousel -->
+ <div class="row">
+    <% @category.items.each do |item| %>
+      <div class="span3">
+        <h2><%=link_to item.name, item %></h2>
+          <div><%=image_tag item.image, size: "200x200", class: "prod-circle" %></div>
+          <div><%=item.story%></div>
+          <div><%=number_to_currency( item.price) %></div>
+          <div><%= link_to "That's the one!", item, class: "btn" %></div>
 
 
-<% @category.items.each do |item| %>
-<ul>
-  <li>
-    <div><%=link_to item.name, item %></div>
-    <div><%= item.story %></div>
-    <div><%= item.user.name %></div>
-    <div>$<%= item.price %></div>
-  </li>
-</ul>
-
+</div>
 <% end %>
+
+      </div><!-- /.row -->
+
+
+      <!-- START THE FEATURETTES -->
+
+      <hr class="featurette-divider">
+
+      <div class="featurette">
+        <img class="featurette-image pull-right" src="../assets/casebag.jpg">
+        <h2 class="featurette-heading">Case Tote   <span class="muted">Gets the job done! </span></h2>
+        <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <div class="featurette">
+        <img class="featurette-image pull-left" src="../assets/staceybag.jpg">
+        <h2 class="featurette-heading">Stacey Bag  <span class="muted">this bag is fun, light and likes to party!</span></h2>
+        <p class="lead">Send us at least 1 1/4 yds of material which is equal to a large shirt, pants, sweater, you get the idea</p>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <div class="featurette">
+        <img class="featurette-image pull-right" src="../assets/lowellbag.jpg" width="250px">
+          <h2 class="featurette-heading">Lowell Bag <span class="muted">Best Friend</span></h2>
+          <p class="lead">Sturdy, durable best for heavy duty purpose like grocery shopping and carrying multiple items</p>
+        </div>
+
+
+      <hr class="featurette-divider">
+
+      <!-- /END THE FEATURETTES -->
+
+
+      <!-- FOOTER -->
+      <footer>
+        <p class="pull-right"><a href="#">Back to top</a></p>
+        <p>&copy; 2013 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+      </footer>
+
+    </div><!-- /.container -->
+
+
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="jquery.js"></script>
+    <script src="bootstrap.js"></script>
+    <script src="holder.js"></script>
+    <script src="hover.js"></script>
+
+  </body>
+</html>
+
+
+
 
 <% if session[:email].present? && User.find_by_email(session[:email]).admin? %>
 <%= link_to 'Edit', edit_category_path(@category) %> |
