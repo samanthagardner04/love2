@@ -50,8 +50,8 @@
  <% @category.items.each do |item| %>
       <div class="featurette">
         <div><%= image_tag item.image, size: "200x200", class: "featurette-image pull-left prod-circle" %></div>
-        <h2 class="featurette-heading"><%= item.name %>  <span class="muted">Gets the job done! </span></h2>
-        <div class="lead"><center><%= item.story %></center></div>
+        <h2 class="featurette-heading"><%= item.name %>  <span class="muted"><%= item.story  %></span></h2>
+        <div class="lead"><center><%= item.description %></center></div>
       </div>
 <% end %>
 

@@ -1,28 +1,21 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Story:</b>
+  <%=image_tag @item.image %>
+</p>
+
+<p>
+  <h2><%= @item.name %></h2>
+</p>
+<p>
   <%= @item.story %>
 </p>
-
 <p>
-  <b>User:</b>
-  <%= @item.user.name %>
+  <%= @item.description %>
 </p>
 
 <p>
-  <b>Name:</b>
-  <%= @item.name %>
-</p>
-
-<p>
-  <b>Price:</b>
   $<%= @item.price %>
-</p>
-
-<p>
-  <b>Category:</b>
-  <%= @item.category.name %>
 </p>
 
 
