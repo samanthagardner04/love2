@@ -5,7 +5,7 @@
     <div id="myCarousel" class="carousel slide">
       <div class="carousel-inner">
         <div class="item active">
-          <img src="../assets/slide-01.jpg" alt="" class="blur">
+          <img src="../assets/slide-02.jpg" alt="" class="blur">
           <div class="container">
             <div class="carousel-caption">
               <h1><%= @category.name %></h1>
@@ -32,39 +32,30 @@
           <div><%=item.story%></div>
           <div><%=number_to_currency( item.price) %></div>
           <div><%= link_to "That's the one!", item, class: "btn" %></div>
-
-
 </div>
 <% end %>
+          <h2>Love2 Trim</h2>
+          <div><%= image_tag "scraps.jpg", size: "200x200", class: "prod-circle" %></div>
+          <div>Choose trim from other profiles or we can choose for you! </div>
+          <div><%= link_to "Browse Trim", root_url, class: "btn" %></div>
+
 
       </div><!-- /.row -->
 
 
       <!-- START THE FEATURETTES -->
 
-      <hr class="featurette-divider">
 
+      <hr class="featurette-divider">
+ <% @category.items.each do |item| %>
       <div class="featurette">
-        <img class="featurette-image pull-right" src="../assets/casebag.jpg">
-        <h2 class="featurette-heading">Case Tote   <span class="muted">Gets the job done! </span></h2>
-        <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+        <div><%= image_tag item.image, size: "200x200", class: "featurette-image pull-left prod-circle" %></div>
+        <h2 class="featurette-heading"><%= item.name %>  <span class="muted">Gets the job done! </span></h2>
+        <div class="lead"><center><%= item.story %></center></div>
       </div>
+<% end %>
 
-      <hr class="featurette-divider">
 
-      <div class="featurette">
-        <img class="featurette-image pull-left" src="../assets/staceybag.jpg">
-        <h2 class="featurette-heading">Stacey Bag  <span class="muted">this bag is fun, light and likes to party!</span></h2>
-        <p class="lead">Send us at least 1 1/4 yds of material which is equal to a large shirt, pants, sweater, you get the idea</p>
-      </div>
-
-      <hr class="featurette-divider">
-
-      <div class="featurette">
-        <img class="featurette-image pull-right" src="../assets/lowellbag.jpg" width="250px">
-          <h2 class="featurette-heading">Lowell Bag <span class="muted">Best Friend</span></h2>
-          <p class="lead">Sturdy, durable best for heavy duty purpose like grocery shopping and carrying multiple items</p>
-        </div>
 
 
       <hr class="featurette-divider">
