@@ -13,36 +13,36 @@
 
 
   <div class="field">
-    <%= f.label :name %><br />
+    <%= f.label :name %>
     <%= f.text_field :name %>
   </div>
 
   <div class="field">
-    <%= f.label :story %><br />
+    <%= f.label :story %>
     <%= f.text_field :story %>
   </div>
 
   <div class="field">
-    <%= f.label :description %><br />
+    <%= f.label :description %>
     <%= f.text_area :description %>
   </div>
 
   <div class="field">
-    <%= f.label :image %><br />
+    <%= f.label :image %>
     <%= f.text_field :image %>
   </div>
 
   <div class="field">
-    <%= f.label :user_id %><br />
+    <%= f.label :user_id %>
     <%= f.collection_select :user_id, User.all, :id, :name %>
   </div>
 
   <div class="field">
-    <%= f.label :price %><br />
+    <%= f.label :price %>
     <%= f.number_field :price %>
   </div>
   <div class="field">
-    <%= f.label :category_id %><br />
+    <%= f.label :category_id %>
     <%= f.collection_select :category_id, Category.all, :id, :name %>
   </div>
   <div class="actions">
