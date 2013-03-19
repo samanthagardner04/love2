@@ -18,6 +18,8 @@ Love2::Application.routes.draw do
 
   get "/logout" => 'sessions#destroy', as: :logout
 
+  get "/things" => "things#show", as: :things
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
