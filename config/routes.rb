@@ -2,14 +2,8 @@ Love2::Application.routes.draw do
 
  root :to => 'categories#index'
 
-
-
   resources :categories
-
-
   resources :items
-
-
   resources :users
 
   get "/login" => 'sessions#new', as: :login
@@ -17,6 +11,8 @@ Love2::Application.routes.draw do
   post "sessions/create" => 'sessions#create', as: :create_session
 
   get "/logout" => 'sessions#destroy', as: :logout
+
+  get "/about" => 'info#about', as: :about
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
