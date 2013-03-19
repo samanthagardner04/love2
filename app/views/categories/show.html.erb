@@ -31,7 +31,22 @@
            <h2><%=link_to item.name, item, class: "btn btn-primary btn-block"%></h2>
           <div><%=item.story%></div>
           <div><%=number_to_currency( item.price) %></div>
-          <div><%= link_to "Buy!", item, class: "btn" %></div>
+
+          <form action="https://checkout.google.com/api/checkout/v2/checkoutForm/Merchant/212973252757729" id="BB_BuyButtonForm" method="post" name="BB_BuyButtonForm" target="_top">
+    <input name="item_name_1" type="hidden" value="<%= item.name %>"/>
+    <input name="item_description_1" type="hidden" value=""/>
+    <input name="item_quantity_1" type="hidden" value="1"/>
+    <input name="item_price_1" type="hidden" value="<%= item.price %>"/>
+    <input name="item_currency_1" type="hidden" value="USD"/>
+    <input name="_charset_" type="hidden" value="utf-8"/>
+    <input alt="" src="https://checkout.google.com/buttons/buy.gif?merchant_id=212973252757729&amp;w=117&amp;h=48&amp;style=white&amp;variant=text&amp;loc=en_US" type="image"/>
+</form>
+
+
+
+
+
+
 </div>
 <% end %>
       </div><!-- /.row -->
