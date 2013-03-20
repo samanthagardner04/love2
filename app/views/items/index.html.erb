@@ -1,14 +1,12 @@
-
-<% if session[:email].present? %>
-You're looking spritely today, <%= User.find_by_email(session[:email]).name %>.
-<% end %>
+ <div class="pull-right"><%= link_to 'New Item', new_item_path %></div>
 
 <h1>Items</h1>
 
+
 <% @items.each do |item| %>
-  <ul>
+  <ul class="row span2">
     <li>
-    <div><%=link_to item.name, item %></div>
+    <div><strong><%=link_to item.name, item %></strong></div>
     <div><%= item.story %></div>
     <div>$<%= item.price %></div>
     <div><%=link_to item.category.name, category_url(item.category_id) %></div>
@@ -16,11 +14,9 @@ You're looking spritely today, <%= User.find_by_email(session[:email]).name %>.
     <%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %>
     </li>
   </ul>
-
 <% end %>
 
-<br />
 
 
-<%= link_to 'New Item', new_item_path %>
+
 
