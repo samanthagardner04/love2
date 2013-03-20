@@ -10,7 +10,6 @@
             <div class="carousel-caption">
               <h1><%= @category.name %></h1>
               <p class="lead">1. Pick your style 2. Add trim 3. Checkout</p>
-              <a class="btn btn-large btn-primary" href="#">Get Started</a>
             </div>
           </div>
         </div>
@@ -32,19 +31,15 @@
           <div><%=item.story%></div>
           <div><%=number_to_currency( item.price) %></div>
 
-          <form action="https://checkout.google.com/api/checkout/v2/checkoutForm/Merchant/212973252757729" id="BB_BuyButtonForm" method="post" name="BB_BuyButtonForm" target="_top">
+  <form action="https://checkout.google.com/api/checkout/v2/checkoutForm/Merchant/212973252757729" id="BB_BuyButtonForm" method="post" name="BB_BuyButtonForm" target="_top">
     <input name="item_name_1" type="hidden" value="<%= item.name %>"/>
-    <input name="item_description_1" type="hidden" value=""/>
+    <input name="item_description_1" type="hidden" value="<%= item.description %>"/>
     <input name="item_quantity_1" type="hidden" value="1"/>
     <input name="item_price_1" type="hidden" value="<%= item.price %>"/>
     <input name="item_currency_1" type="hidden" value="USD"/>
     <input name="_charset_" type="hidden" value="utf-8"/>
-    <input alt="" src="https://checkout.google.com/buttons/buy.gif?merchant_id=212973252757729&amp;w=117&amp;h=48&amp;style=white&amp;variant=text&amp;loc=en_US" type="image"/>
-</form>
-
-
-
-
+    <input alt="" class="btn btn-info" value="Buy!" type="submit"/>
+  </form>
 
 
 </div>

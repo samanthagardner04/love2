@@ -1,9 +1,13 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <h1><%= @user.name %>'s Profile</h1>
-</p>
-  <%= @user.email %>
+<div><h1><%= @user.name %>'s Profile</h1></div>
+
+  <%if @user.image.present? %>
+ <div><%=image_tag @user.image, size: "200x200" %></div>
+  <% end %>
+  <div><%= @user.email %></div>
+
+
 
 
 
