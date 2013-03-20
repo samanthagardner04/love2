@@ -9,7 +9,6 @@ You're looking spritely today, <%= User.find_by_email(session[:email]).name %>.
   <ul>
     <li>
     <div><%=link_to item.name, item %></div>
-    <div><%=link_to item.user.name, user_url(item.user_id) %></div>
     <div><%= item.story %></div>
     <div>$<%= item.price %></div>
     <div><%=link_to item.category.name, category_url(item.category_id) %></div>

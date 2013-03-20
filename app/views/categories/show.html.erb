@@ -1,4 +1,3 @@
-<p id="notice"><%= notice %></p>
 
     <!-- Carousel
     ================================================== -->
@@ -92,9 +91,6 @@
 
   </body>
 </html>
-
-
-
 
 <% if session[:email].present? && User.find_by_email(session[:email]).admin? %>
 <%= link_to 'Edit', edit_category_path(@category) %> |
