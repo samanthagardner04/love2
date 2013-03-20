@@ -31,6 +31,9 @@
           <div><%=item.story%></div>
           <div><%=number_to_currency( item.price) %></div>
 
+
+
+<% if session[:email].present? %>
   <form action="https://checkout.google.com/api/checkout/v2/checkoutForm/Merchant/212973252757729" id="BB_BuyButtonForm" method="post" name="BB_BuyButtonForm" target="_top">
     <input name="item_name_1" type="hidden" value="<%= item.name %>"/>
     <input name="item_description_1" type="hidden" value="<%= item.description %>"/>
@@ -40,7 +43,9 @@
     <input name="_charset_" type="hidden" value="utf-8"/>
     <input alt="" class="btn btn-info" value="Buy!" type="submit"/>
   </form>
-
+  <%else %>
+  <%= link_to "Buy!", login_url, class: "btn btn-info" %>
+  <% end %>
 
 </div>
 <% end %>

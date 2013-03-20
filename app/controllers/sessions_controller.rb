@@ -8,9 +8,8 @@ class SessionsController < ApplicationController
     if u.present? && u.authenticate(params[:password])
         session[:email] = u.email
        redirect_to root_url
-
     else
-      redirect_to login_url, notice: 'Nice try'
+      redirect_to login_url, notice: 'Please try again'
     end
   end
 
