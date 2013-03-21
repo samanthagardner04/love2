@@ -38,7 +38,6 @@ end
 4.times do
   i = Item.new
   i.price = rand(1..300)
-  i.user = User.first
   i.story = "Random Story"
   i.description="Description Description"
   i.name= "Sample Item Name"
