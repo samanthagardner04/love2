@@ -12,12 +12,12 @@ class SessionsController < ApplicationController
         session[:email] = u.email
        redirect_to root_url
     else
-      redirect_to login_url, notice: 'Please try again'
+      redirect_to login_url, notice: 'Please try again.'
     end
   end
 
   def destroy
     reset_session
-    redirect_to root_url, notice: "You've been logged out"
+    redirect_to root_url, notice: "You've been logged out."
   end
 end
