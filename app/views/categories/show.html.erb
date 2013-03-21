@@ -28,58 +28,20 @@
           <div><%=link_to (image_tag item.image, size: "200x200", class: "prod-circle"), item %></div>
            <h2><%=link_to item.name, item, class: "btn btn-primary btn-block"%></h2>
           <div><%=item.story%></div>
-          <div><%=number_to_currency( item.price) %></div>
+          <div><strong><%=number_to_currency( item.price) %></strong></div>
 
-
-
-<% if session[:email].present? %>
-  <form action="https://checkout.google.com/api/checkout/v2/checkoutForm/Merchant/212973252757729" id="BB_BuyButtonForm" method="post" name="BB_BuyButtonForm" target="_top">
-    <input name="item_name_1" type="hidden" value="<%= item.name %>"/>
-    <input name="item_description_1" type="hidden" value="<%= item.description %>"/>
-    <input name="item_quantity_1" type="hidden" value="1"/>
-    <input name="item_price_1" type="hidden" value="<%= item.price %>"/>
-    <input name="item_currency_1" type="hidden" value="USD"/>
-    <input name="_charset_" type="hidden" value="utf-8"/>
-    <input alt="" class="btn btn-info" value="Buy!" type="submit"/>
-  </form>
-  <%else %>
-  <%= link_to "Buy!", login_url, class: "btn btn-info" %>
-  <% end %>
-
-</div>
-<% end %>
-      </div><!-- /.row -->
-
-
-      <!-- START THE FEATURETTES -->
-
-
-      <hr class="featurette-divider">
- <% @category.items.each do |item| %>
-      <div class="featurette">
-        <div><%= image_tag item.image, size: "200x200", class: "featurette-image pull-left prod-circle" %></div>
-        <h2 class="featurette-heading"><%= item.name %>  <span class="muted"><%= item.story  %></span></h2>
-        <div class="lead"><center><%= item.description %></center></div>
+        <% if session[:email].present? %>
+          <%= render 'buy_button', item: item %>
+        <%else %>
+          <%= link_to "Buy!", login_url, class: "btn btn-info" %>
+        <% end %>
       </div>
-<% end %>
+    <% end %>
+  </div><!-- /.row -->
 
+  <%= render 'featurettes' %>
 
-
-
-      <hr class="featurette-divider">
-
-      <!-- /END THE FEATURETTES -->
-
-
-      <!-- FOOTER -->
-      <footer>
-        <p class="pull-right"><a href="#">Back to top</a></p>
-        <p>&copy; 2013 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
-      </footer>
-
-    </div><!-- /.container -->
-
-
+  <%= render 'footer' %>
 
     <!-- Le javascript
     ================================================== -->
@@ -89,8 +51,6 @@
     <script src="holder.js"></script>
     <script src="hover.js"></script>
 
-  </body>
-</html>
 
 <% if session[:email].present? && User.find_by_email(session[:email]).admin? %>
 <%= link_to 'Edit', edit_category_path(@category) %> |
