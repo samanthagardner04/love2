@@ -1,6 +1,15 @@
 class UsersController < ApplicationController
 
 
+ before_filter :authorize_user, except: [:new, :create]
+
+    def authorize_user
+      if User.find_by_email(session[:email]) != User.find(params[:id])
+        redirect_to root_url, notice: "Nice try!"
+      end
+    end
+
+
   # GET /users
   # GET /users.json
   def index

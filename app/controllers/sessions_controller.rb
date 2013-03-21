@@ -1,6 +1,9 @@
 class SessionsController < ApplicationController
 
   def new
+    if params[:login].present?
+      @message="You must be logged in to buy this item!"
+    end
   end
 
   def create

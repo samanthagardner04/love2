@@ -33,7 +33,7 @@
         <% if session[:email].present? %>
           <%= render 'buy_button', item: item %>
         <%else %>
-          <%= link_to "Buy!", login_url, class: "btn btn-info" %>
+          <%= link_to "Buy!", login_url(login: "no"), class: "btn btn-info" %>
         <% end %>
       </div>
     <% end %>
