@@ -24,7 +24,7 @@
       <!-- Three columns of text below the carousel -->
  <div class="row">
     <% @category.items.each do |item| %>
-      <div class="span3">
+      <div class="span4">
           <div><%=link_to (image_tag item.image, size: "200x200", class: "prod-circle"), item %></div>
            <h2><%=link_to item.name, item, class: "btn btn-primary btn-block"%></h2>
           <div><%=item.story%></div>
