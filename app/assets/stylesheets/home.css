@@ -7,6 +7,14 @@
   color: #5a5a5a;
 }
 
+.pad-bottom {
+  padding-bottom: 10.5px;
+}
+
+.pad-top {
+  padding-top: 10px;
+}
+
 
 /* CUSTOMIZE THE NAVBAR
 -------------------------------------------------- */
