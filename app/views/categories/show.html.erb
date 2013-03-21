@@ -24,16 +24,16 @@
       <!-- Three columns of text below the carousel -->
  <div class="row">
     <% @category.items.each do |item| %>
-      <div class="span3">
-          <div><%=link_to (image_tag item.image, size: "200x200", class: "prod-circle"), item %></div>
-           <h2><%=link_to item.name, item, class: "btn btn-primary btn-block"%></h2>
+      <div class="span4">
+          <div><%=image_tag item.image, size: "200x200", class: "prod-circle"%></div>
+           <h2 class="btn btn-block btn-primary"><%= item.name %></h2>
           <div><%=item.story%></div>
           <div><strong><%=number_to_currency( item.price) %></strong></div>
 
         <% if session[:email].present? %>
           <%= render 'buy_button', item: item %>
         <%else %>
-          <%= link_to "Buy!", login_url, class: "btn btn-info" %>
+          <%= link_to "Buy!", login_url(login: "no"), class: "btn btn-info" %>
         <% end %>
       </div>
     <% end %>

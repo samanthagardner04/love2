@@ -1,6 +1,22 @@
 class UsersController < ApplicationController
 
 
+ before_filter :authorize_user, except: [:new, :create, :index]
+ before_filter :administrator, only: [:index]
+
+    def administrator
+      unless User.find_by_email(session[:email]).admin?
+        redirect_to root_url, notice: "Nice try!"
+      end
+    end
+
+    def authorize_user
+      if !session[:email].present? || User.find_by_email(session[:email]) != User.find(params[:id])
+        redirect_to root_url, notice: "Nice try!"
+      end
+    end
+
+
   # GET /users
   # GET /users.json
   def index

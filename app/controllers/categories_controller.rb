@@ -1,7 +1,17 @@
 class CategoriesController < ApplicationController
+
+
+ before_filter :administrator, except: [:index, :show]
+
+    def administrator
+      unless session[:email].present? && User.find_by_email(session[:email]).admin?
+        redirect_to root_url, notice: "Nice try!"
+      end
+    end
+
+
   # GET /categories
   # GET /categories.json
-
   def index
     @categories = Category.all
 
