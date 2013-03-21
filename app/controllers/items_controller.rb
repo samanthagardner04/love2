@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
 
 
- before_filter :administrator, except: [:show]
+ before_filter :administrator
 
     def administrator
       unless session[:email].present? && User.find_by_email(session[:email]).admin?
