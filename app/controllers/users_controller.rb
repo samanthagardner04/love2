@@ -1,4 +1,22 @@
 class UsersController < ApplicationController
+
+
+ before_filter :authorize_user, except: [:new, :create, :index]
+ before_filter :administrator, only: [:index]
+
+    def administrator
+      unless User.find_by_email(session[:email]).admin?
+        redirect_to root_url, notice: "Nice try!"
+      end
+    end
+
+    def authorize_user
+      if !session[:email].present? || User.find_by_email(session[:email]) != User.find(params[:id])
+        redirect_to root_url, notice: "Nice try!"
+      end
+    end
+
+
   # GET /users
   # GET /users.json
   def index
@@ -44,7 +62,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
+        format.html { redirect_to root_url, notice: 'Thanks for signing up!' }
         format.json { render json: @user, status: :created, location: @user }
       else
         format.html { render action: "new" }

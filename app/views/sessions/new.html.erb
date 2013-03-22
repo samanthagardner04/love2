@@ -1,3 +1,7 @@
+ <% if params[:login]="no" %>
+     <%= @message %>
+   <%  end %>
+
 <h1>Login</h1>
 
 <%= form_tag create_session_url do %>
@@ -7,6 +11,6 @@
  <div class="field">
     <%= password_field_tag :password, "", placeholder: 'Enter Password' %>
   </div>
-  <%= submit_tag "Login" %>
+  <%= submit_tag "Login", class: "btn btn-primary" %>
 <% end -%>
 Don't have an account yet? <%= link_to "Sign up here", new_user_url  %>

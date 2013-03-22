@@ -1,0 +1,36 @@
+<div class="container marketing">
+      <!-- Three columns of text below the carousel -->
+  <div class="row">
+     <% @categories.each do |category| %>
+       <div class="span3">
+          <center><%=link_to (image_tag category.image, size: "200x200"), category %><br>
+          <h2><%=link_to category.name, category, class: "btn btn-primary btn-block" %></h2>
+           <%=category.description%><br>
+          <% if session[:email].present? && User.find_by_email(session[:email]).admin? %>
+              <%= link_to 'Edit', edit_category_path(category) %>
+              <%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></center>
+          <% end %>
+        </div>
+     <% end %>
+
+    <div class="span3">
+     <center><%= image_tag "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRvjIYuiRbgB5PIjBm5vDf4Duz73iB57_tRkb23uR1nqbeP_f_Seg
+      ", size: "200x200", class: "pad-bottom" %>
+      <% if session[:email].present? %><center>
+        <form action="https://checkout.google.com/api/checkout/v2/checkoutForm/Merchant/212973252757729" id="BB_BuyButtonForm" method="post" name="BB_BuyButtonForm" target="_top">
+          <input name="item_name_1" type="hidden" value="Surprise"/>
+          <input name="item_description_1" type="hidden" value="We're sure you'll love your surprise!"/>
+          <input name="item_quantity_1" type="hidden" value="1"/>
+          <input name="item_price_1" type="hidden" value="56.0"/>
+          <input name="item_currency_1" type="hidden" value="USD"/>
+          <input name="_charset_" type="hidden" value="utf-8"/>
+          <input alt="" class="btn btn-primary btn-block" value="Surprise Me!" type="submit"/>
+        </form>
+      <%else %>
+        <%= link_to "Surprise Me!", login_url, class: "btn btn-primary btn-block" %></center>
+      <% end %>
+    </div>
+  <div class= "span3 pad-top"><center>Unsure what to have made? Send us your fabric and let us choose for you!</div></center>
+
+  </div><!-- /.span4 -->
+</div><!-- /.row -->

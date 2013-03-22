@@ -10,25 +10,29 @@
       </ul>
     </div>
   <% end %>
-
+<div> *=Required Fields</div>
   <div class="field">
-    <%= f.text_field :name, placeholder: "Name" %>
+    <%= f.text_field :name, placeholder: "*Name" %>
   </div>
   <div class="field">
-    <%= f.text_field :email, placeholder: "Email Address"  %>
+    <%= f.text_field :email, placeholder: "*Email Address"  %>
   </div>
 
     <%= f.hidden_field :admin, value: false %>
 
+  <div>
+    <%= f.text_field :image, placeholder: "Profile Picture URL (optional)"  %>
+  </div>
+
   <div class="field">
-    <%= f.password_field :password, placeholder: "Password"  %>
+    <%= f.password_field :password, placeholder: "*Password"  %>
   </div>
    <div class="field">
-    <%= f.password_field :password_confirmation, placeholder: "Confirm Password"  %>
+    <%= f.password_field :password_confirmation, placeholder: "*Confirm Password"  %>
   </div>
   <div class="actions">
 
-    <%= f.submit "Sign Up" %>
+    <%= f.submit "Sign Up", class: "btn btn-primary" %>
   </div>
 <% end %>
  Already have an account? <%= link_to "Login here", login_url  %>

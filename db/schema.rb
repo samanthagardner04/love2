@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130318190123) do
+ActiveRecord::Schema.define(:version => 20130320225340) do
 
   create_table "categories", :force => true do |t|
     t.datetime "created_at",  :null => false
@@ -23,7 +23,6 @@ ActiveRecord::Schema.define(:version => 20130318190123) do
 
   create_table "items", :force => true do |t|
     t.string   "story"
-    t.integer  "user_id"
     t.string   "name"
     t.integer  "price"
     t.integer  "category_id"

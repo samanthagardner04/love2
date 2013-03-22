@@ -2,14 +2,8 @@ Love2::Application.routes.draw do
 
  root :to => 'categories#index'
 
-
-
   resources :categories
-
-
   resources :items
-
-
   resources :users
 
   get "/login" => 'sessions#new', as: :login
@@ -18,7 +12,11 @@ Love2::Application.routes.draw do
 
   get "/logout" => 'sessions#destroy', as: :logout
 
+<<<<<<< HEAD
   get "/things" => "things#show", as: :things
+=======
+  get "/about" => 'info#about', as: :about
+>>>>>>> upstream/master
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
